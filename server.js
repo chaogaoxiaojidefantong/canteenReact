@@ -7,7 +7,6 @@ const options = {
   hot: true,
   host: 'localhost'
 };
-
 webpackDevServer.addDevServerEntrypoints(config, options);
 const compiler = webpack(config);
 const server = new webpackDevServer(compiler, options);
