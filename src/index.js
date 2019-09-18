@@ -12,7 +12,7 @@ function component() {
   //btn.onclick = printMe;  // onclick 事件绑定原始的 printMe 函数上
   btn.onclick=e=>{
     import('./print.js').then(module=>{
-    let printMe=module.default.printMe
+    let printMe=module.printMe
     printMe()
   })}
   element.appendChild(btn);
