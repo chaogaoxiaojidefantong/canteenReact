@@ -1,6 +1,7 @@
 import _ from 'lodash';
-import printMe from './print.js';
+//import printMe from './print.js';
 import './styles.css';
+//import printMe from './print.js';
 function component() {
   var element = document.createElement('div');
   var btn = document.createElement('button');
@@ -8,8 +9,12 @@ function component() {
   element.innerHTML = _.join(['ccHello', 'webpack'], ' ');
 
   btn.innerHTML = 'Click me and check the console!';
-  btn.onclick = printMe;  // onclick 事件绑定原始的 printMe 函数上
-
+  //btn.onclick = printMe;  // onclick 事件绑定原始的 printMe 函数上
+  btn.onclick=e=>{
+    import('./print.js').then(module=>{
+    let printMe=module.default.printMe
+    printMe()
+  })}
   element.appendChild(btn);
 
   return element;

@@ -1,4 +1,7 @@
-export default function printMe() {
-  console.log('I wwwtttxxxxcccget called from print.js!');
+ const printMe=()=> {
+   alert("nn")
+  console.log('I wwwtttxxxxcccget called from print.jsss!');
+  
   // cosnole.error('I get called from print.js!');
 }
+export  default {printMe};
