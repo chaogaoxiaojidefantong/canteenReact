@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
- import Routes from '@configs/router.config'
+ import Routes from '@/configs/router.config'
  import Route from './router/';
  import store from '@/store/store';
  import { AppContainer } from 'react-hot-loader';
+ import registerServiceWorker from './registerServiceWorker';
  import { createStore } from 'redux'
  const render=Component=>{
   ReactDOM.render(
@@ -17,3 +18,4 @@ import { Provider } from 'react-redux'
   )
  }
  render(Route);
+ registerServiceWorker();
