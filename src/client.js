@@ -1,13 +1,19 @@
-import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
- import configure from '@middleware/configureStore'
  import Routes from '@configs/router.config'
- import store from '@middleware/store'
+ import Route from './router/';
+ import store from '@/store/store';
+ import { AppContainer } from 'react-hot-loader';
  import { createStore } from 'redux'
-ReactDOM.render(
-  <Routes />,
-  document.getElementById('root')
-);
-debugger
+ const render=Component=>{
+  ReactDOM.render(
+    <Provider store={store}>
+        <AppContainer>
+        <Component />
+      </AppContainer>
+    </Provider>,
+    document.getElementById('root')
+  )
+ }
+ render(Route);

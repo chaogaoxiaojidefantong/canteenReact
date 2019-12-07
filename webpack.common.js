@@ -36,7 +36,7 @@
         extensions: [ '.tsx', '.ts', '.js','.jsx' ],
         alias: {
           '@configs': path.join(__dirname, './src/configs'),
-          '@app': path.join(__dirname, './src'),
+          '@': path.join(__dirname, './src'),
           '@actions': path.join(__dirname, './src/redux/actions'),
           '@reducers': path.join(__dirname, './src/redux/reducers'),
           '@apis': path.join(__dirname, './src/apis'),
