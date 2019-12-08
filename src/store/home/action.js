@@ -7,3 +7,11 @@ export const saveFormData = (value, datatype) => {
       datatype,
     }
   }
+
+  // 保存图片地址
+export const saveImg = path => {
+  return {
+    type: home.SAVEFORMDATA,
+    path,
+  }
+}
