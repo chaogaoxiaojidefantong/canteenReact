@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import Ftbutton from '../../components/ftbutton/ftbutton'
 import './home.less'
 import store from '../../store/store'
+import Api from '@/api/api'
 class Home extends Component{
   static propTypes = {
     formData: PropTypes.object.isRequired,
@@ -15,6 +16,13 @@ class Home extends Component{
      this.props.formData.name='sansan';
     this.props.saveFormData('33', '22');
     let v=store.getState();
+  }
+  componentDidMount() {
+    let res=Api.getCanteen().then(res=>{
+      debugger
+    },err=>{
+      debugger
+    })
   }
     render(){
       return (       
