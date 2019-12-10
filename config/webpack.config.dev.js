@@ -97,7 +97,7 @@ module.exports = {
     // https://github.com/facebookincubator/create-react-app/issues/290
     // `web` extension prefixes have been added for better support
     // for React Native Web.
-    extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
+    extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx','.ts','.tsx'],
     alias: {
       // @remove-on-eject-begin
       // Resolve Babel runtime relative to react-scripts.
@@ -125,10 +125,13 @@ module.exports = {
   module: {
     strictExportPresence: true,
     rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        loader: 'ts-loader'
+      },
       // TODO: Disable require.ensure as it's not a standard language feature.
       // We are waiting for https://github.com/facebookincubator/create-react-app/issues/2176.
       // { parser: { requireEnsure: false } },
-
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
       {
