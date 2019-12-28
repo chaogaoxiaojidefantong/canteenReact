@@ -1,11 +1,11 @@
 import * as user from './action-type';
-
 let defaultState = {
-    name: '',  //姓名
-    email:''   //邮箱
+    userName: '',  //姓名
+    userEmail:'',  //邮箱
+    userPwd:''//密码
 }
 
 // 首页表单数据
-export const formData = (state = defaultState , action = {}) => {
+export const loginGo = (state = defaultState , action = {}) => {
     return {...state, ...{[action.datatype]: action.value}};
 }

@@ -238,7 +238,7 @@ module.exports = {
                       ],
                       flexbox: 'no-2009',
                     }),
-                    px2rem({remUnit: 75})//设计稿根据750px(iphone6)
+                    // px2rem({remUnit: 75})//设计稿根据750px(iphone6)
                   ],
                 },
               },
