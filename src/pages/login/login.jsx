@@ -20,11 +20,13 @@ class Login extends Component{
 
     submit=()=>{
         login(this.state.loginParam);
+        let g=store.getState();
+        debugger
     }
 
     componentDidMount() {
         let v=store.getState();
-        debugger
+        
     }
     handleInput=(type,event)=>{
         let val=event.target.value;
@@ -58,7 +60,7 @@ class Login extends Component{
 }
 
 const mapStateToProps=(state)=>{       
-        return {user:state.loginGo}
+        return {}
 }
 
 export default connect(mapStateToProps,{login})(Login);
