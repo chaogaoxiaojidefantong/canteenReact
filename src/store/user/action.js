@@ -1,5 +1,6 @@
-export const login =(param)=>{
+export const login =(data)=>{
     return{
-        param
+        type:'login',
+        data:data
     }
 }

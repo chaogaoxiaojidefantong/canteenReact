@@ -8,16 +8,18 @@ import api from '@/api/api'
 class Home extends Component{
   static propTypes = {
     formData: PropTypes.object,
-     saveFormData: PropTypes.func.isRequired
+    saveFormData: PropTypes.func.isRequired
   }
   buttonClick=()=>{
     //this.props.formData.name='sansan';
     this.props.saveFormData('sansan','name');
     let v=store.getState();
+    let b={['sansan']:'vv'};
     debugger
   }
   componentDidMount() {
     let res=api.getCanteen().then(res=>{
+      debugger
     },err=>{
     })
   }

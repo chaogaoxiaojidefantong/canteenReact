@@ -7,9 +7,11 @@ import bgsrc from '../../assets/leimu.jpg'
 import PropTypes from 'prop-types';
 import {login} from '../../store/user/action'
 import store from '../../store/store'
+import {loginData} from '../../store/user/action-type'
+import api from '../../api/api'
 class Login extends Component{
     // static propTypes={
-    //     loginParam:PropTypes.object
+    //     login:PropTypes.func
     // }
      state={
         loginParam:{
@@ -18,15 +20,22 @@ class Login extends Component{
         }
     }
 
+    updateInput = userPwd => {
+        let data=Object.assign(this.state.loginParam,{userPwd:userPwd})
+        this.setState({loginParam:data});
+      };
+
     submit=()=>{
-        login(this.state.loginParam);
-        let g=store.getState();
-        debugger
+        this.props.login(this.state.loginParam); 
+        api.login(this.state.loginParam).then(res=>{
+            debugger
+        },err=>{
+            debugger
+        })  
+        
     }
 
     componentDidMount() {
-        let v=store.getState();
-        
     }
     handleInput=(type,event)=>{
         let val=event.target.value;
@@ -51,7 +60,7 @@ class Login extends Component{
             <img src={bgsrc} alt='wu'/>
             <FtContainer title='sasnan'>
                 <input type='text' placeholder='email' value={this.state.loginParam.userEmail} onChange={this.handleInput.bind(this,'email')}/>
-                <input type='password' placeholder='password' value={this.state.loginParam.userPwd} onChange={this.handleInput.bind(this,'pwd')}/>
+                <input type='password' placeholder='password' value={this.state.loginParam.userPwd} onChange={e => this.updateInput(e.target.value)}/>
               <FtButton backgroundColor='red' click={this.submit}>登录</FtButton>
             </FtContainer>  
             </FtContainer2>                                  
@@ -59,8 +68,10 @@ class Login extends Component{
         )}
 }
 
-const mapStateToProps=(state)=>{       
-        return {}
+const mapStateToProps=(state)=>{              
+        return {
+            loginGo:state.loginGo
+        }
 }
 
 export default connect(mapStateToProps,{login})(Login);

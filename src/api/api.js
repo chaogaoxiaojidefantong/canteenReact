@@ -1,16 +1,20 @@
-import Server from './server';
-
-class API extends Server{
-     getCanteen(params={}){
-        return this.axios('post','/adminServiceZuul/Canteen/selectCanteen',params);
+// 专门存放发送异步请求后接受到的数据
+import { axios } from "./api.request";
+class Api{
+    login(data){
+        debugger
+        return axios.request({
+            url: "/adminServiceZuul/User/login",
+            method: "post",
+            data: data
+          });
     }
-    /**
-     * 登录
-     * @param {*} params 
-     */
-    login(params={}){
-        return this.axios('post','/adminServiceZuul/User/login',params);
+    getCanteen(data){
+        return axios.request({
+            url: "/adminServiceZuul/Canteen/selectCanteen",
+            method: "post",
+            data: data
+          });
     }
-    
 }
-export default new API();
+export default new Api();

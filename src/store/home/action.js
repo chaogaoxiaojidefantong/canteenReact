@@ -1,7 +1,6 @@
 import * as home from './action-type';
 // 保存表单数据
 export const saveFormData = (value, datatype) => {
-  debugger
     return {
       type: 'hehe',
       value,
@@ -13,6 +12,6 @@ export const saveFormData = (value, datatype) => {
 export const saveImg = path => {
   return {
     type: home.SAVEFORMDATA,
-    path,
+    path
   }
 }

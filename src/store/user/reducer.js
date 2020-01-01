@@ -6,6 +6,7 @@ let defaultState = {
 }
 
 // 首页表单数据
-export const loginGo = (state = defaultState , action = {}) => {
-    return {...state,...action};
+export const loginGo = (state = defaultState , action = {}) => {   
+    let obj={...state,...action.data}
+    return obj;
 }
