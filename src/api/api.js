@@ -2,7 +2,6 @@
 import { axios } from "./api.request";
 class Api{
     login(data){
-        debugger
         return axios.request({
             url: "/adminServiceZuul/User/login",
             method: "post",

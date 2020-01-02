@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
  import store from '@/store/store';
  import { AppContainer } from 'react-hot-loader';
  import registerServiceWorker from './registerServiceWorker';
+//import 'zent/css/index.css';
  import './style/common.less'
  const render=Component=>{
   ReactDOM.render(

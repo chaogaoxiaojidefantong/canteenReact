@@ -1,6 +1,7 @@
 /* eslint-disable default-case */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import './login.less'
 import {FtContainer,FtContainer2,FtButton} from '../../components/ft/index'
 import bgsrc from '../../assets/leimu.jpg'
@@ -9,6 +10,7 @@ import {login} from '../../store/user/action'
 import store from '../../store/store'
 import {loginData} from '../../store/user/action-type'
 import api from '../../api/api'
+import { Notify } from 'zent';
 class Login extends Component{
     // static propTypes={
     //     login:PropTypes.func
@@ -28,7 +30,15 @@ class Login extends Component{
     submit=()=>{
         this.props.login(this.state.loginParam); 
         api.login(this.state.loginParam).then(res=>{
-            debugger
+            const {status,msg}=res
+            if(status==200){
+                Notify.success('登陆成功');
+                debugger
+                setTimeout(()=>{
+                    const {history}=this.props;
+                    history.push('');
+                    },2000)               
+            }
         },err=>{
             debugger
         })  

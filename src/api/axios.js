@@ -29,8 +29,8 @@ class HttpRequest {
       }
     );
     axiosInstance.interceptors.response.use(res => {
-      const { data, status } = res;
-      return { data, status };
+      const { data } = res;
+      return data;
     });
   }
   request(option) {
