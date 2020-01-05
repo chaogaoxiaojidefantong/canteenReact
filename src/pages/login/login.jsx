@@ -10,7 +10,6 @@ import {login} from '../../store/user/action'
 import store from '../../store/store'
 import {loginData} from '../../store/user/action-type'
 import api from '../../api/api'
-import { Notify } from 'zent';
 class Login extends Component{
     // static propTypes={
     //     login:PropTypes.func
@@ -32,12 +31,13 @@ class Login extends Component{
         api.login(this.state.loginParam).then(res=>{
             const {status,msg}=res
             if(status==200){
-                Notify.success('登陆成功');
-                debugger
+                alert(msg);
+                const {data}=res
+                
                 setTimeout(()=>{
                     const {history}=this.props;
                     history.push('');
-                    },2000)               
+                    },2000);                       
             }
         },err=>{
             debugger

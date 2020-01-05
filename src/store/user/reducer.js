@@ -2,7 +2,8 @@ import * as user from './action-type';
 let defaultState = {
     userName: '',  //姓名
     userEmail:'',  //邮箱
-    userPwd:''//密码
+    userPwd:'',//密码
+    userStatus: ''
 }
 
 // 首页表单数据

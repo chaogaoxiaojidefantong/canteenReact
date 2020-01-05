@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import './home.less'
 import store from '../../store/store'
 import api from '@/api/api'
+import Button from '@material-ui/core/Button';
 class Home extends Component{
   static propTypes = {
     formData: PropTypes.object,
@@ -30,6 +31,9 @@ class Home extends Component{
             <b>ylw食堂</b><b>首页</b><b>我的订单</b><b>三三</b>
             <button onClick={this.buttonClick}>登录页</button>
           </section>
+          <Button variant="contained" color="primary">
+            Hello World
+          </Button>
       </div>)
     }
 }
