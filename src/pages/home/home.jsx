@@ -16,13 +16,12 @@ class Home extends Component{
     this.props.saveFormData('sansan','name');
     let v=store.getState();
     let b={['sansan']:'vv'};
-    debugger
   }
   componentDidMount() {
     let res=api.getCanteen().then(res=>{
-      debugger
     },err=>{
     })
+    let v=store.getState();
   }
     render(){
       return (       

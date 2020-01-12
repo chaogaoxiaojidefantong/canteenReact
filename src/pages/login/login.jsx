@@ -27,13 +27,13 @@ class Login extends Component{
       };
 
     submit=()=>{
-        this.props.login(this.state.loginParam); 
+        //this.props.login(this.state.loginParam); 
         api.login(this.state.loginParam).then(res=>{
             const {status,msg}=res
             if(status==200){
                 alert(msg);
                 const {data}=res
-                
+                localStorage.setItem('user',JSON.stringify(data));
                 setTimeout(()=>{
                     const {history}=this.props;
                     history.push('');

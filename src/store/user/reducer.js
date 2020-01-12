@@ -11,3 +11,6 @@ export const loginGo = (state = defaultState , action = {}) => {
     let obj={...state,...action.data}
     return obj;
 }
+
+
+
