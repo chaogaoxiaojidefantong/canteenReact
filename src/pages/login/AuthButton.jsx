@@ -2,24 +2,31 @@
 import React, { Component } from 'react';
 import { useHistory } from "react-router-dom";
 import PropTypes from 'prop-types';
+import authenticate from '../../libs/authenticate'
 class AuthBUtton extends Component{
-    state={
-        isAuthenticated:false
-    }
+    // state={
+    //     isAuthenticated:false
+    // }
     componentDidMount(){
+        let f=authenticate.isAuthenticated
+        debugger
     }
-    authenticate(cb) {
-        this.setState({isAuthenticated:true});
-        setTimeout(cb, 100); // fake async
-      }
-      signout(cb) {
-        this.setState({isAuthenticated:false});
-        setTimeout(cb, 100);
-      }
+
     render(){
-        return(
-            <div></div>
-        )
+        return authenticate.isAuthenticated ? (
+            <p>
+              Welcome!{" "}
+              <button
+                onClick={() => {
+                    authenticate.signout(() => window.history.push("/"));
+                }}
+              >
+                Sign out
+              </button>
+            </p>
+          ) : (
+            <p>You are not logged in.</p>
+          );
     }
 }
 export default AuthBUtton;

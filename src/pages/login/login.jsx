@@ -11,9 +11,6 @@ import store from '../../store/store'
 import {loginData} from '../../store/user/action-type'
 import api from '../../api/api'
 class Login extends Component{
-    // static propTypes={
-    //     login:PropTypes.func
-    // }
      state={
         loginParam:{
             userEmail:'',
