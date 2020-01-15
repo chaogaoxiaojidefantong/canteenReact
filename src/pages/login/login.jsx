@@ -1,7 +1,6 @@
 /* eslint-disable default-case */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from "react-router-dom";
 import './login.less'
 import {FtContainer,FtContainer2,FtButton} from '../../components/ft/index'
 import bgsrc from '../../assets/leimu.jpg'
@@ -10,6 +9,8 @@ import {login} from '../../store/user/action'
 import store from '../../store/store'
 import {loginData} from '../../store/user/action-type'
 import api from '../../api/api'
+import authenticate from '../../libs/authenticate'
+//let { from } = location.state || { from: { pathname: "/" } };
 class Login extends Component{
      state={
         loginParam:{
@@ -17,6 +18,13 @@ class Login extends Component{
             userPwd:''
         }
     }
+    history=this.props.history
+    location=this.props.location
+    login = () => {
+        authenticate.authenticate(() => {
+          this.history.replace('');
+        });
+    };
 
     updateInput = userPwd => {
         let data=Object.assign(this.state.loginParam,{userPwd:userPwd})
@@ -33,7 +41,7 @@ class Login extends Component{
                 localStorage.setItem('user',JSON.stringify(data));
                 setTimeout(()=>{
                     const {history}=this.props;
-                    history.push('');
+                    this.login();
                     },2000);                       
             }
         },err=>{
@@ -43,7 +51,9 @@ class Login extends Component{
     }
 
     componentDidMount() {
+        
     }
+
     handleInput=(type,event)=>{
         let val=event.target.value;
         switch(type){
@@ -80,5 +90,6 @@ const mapStateToProps=(state)=>{
             loginGo:state.loginGo
         }
 }
+
 
 export default connect(mapStateToProps,{login})(Login);

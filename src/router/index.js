@@ -13,7 +13,7 @@ export default class RouteConfig extends Component{
             <Switch>    
                 <Route path="/login" exact component={login} />
                 <PrivateRoute path="/" >
-                    <Route   />
+                    <Route   component={home}/>
                 </PrivateRoute>
             </Switch>
             </div>

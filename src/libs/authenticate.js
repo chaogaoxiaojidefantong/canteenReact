@@ -1,15 +1,11 @@
 class Authenticate{
-    isAuthenticated=false
-    
+    isAuthenticated=false   
     authenticate(cb) {
-        let authState=this.state
-        let resState={...authState,...{isAuthenticated:true}}    
-        debugger
-        this.setState(resState);
+       this.isAuthenticated=true 
         setTimeout(cb, 100); // fake async
       }
       signout(cb) {
-        this.setState({isAuthenticated:false});
+       this.isAuthenticated=false
         setTimeout(cb, 100);
       }
 }

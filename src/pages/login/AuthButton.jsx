@@ -7,9 +7,9 @@ class AuthBUtton extends Component{
     // state={
     //     isAuthenticated:false
     // }
+    history=this.props.history;
     componentDidMount(){
         let f=authenticate.isAuthenticated
-        debugger
     }
 
     render(){
@@ -18,7 +18,7 @@ class AuthBUtton extends Component{
               Welcome!{" "}
               <button
                 onClick={() => {
-                    authenticate.signout(() => window.history.push("/"));
+                    authenticate.signout(() => this.history.replace('/login'));
                 }}
               >
                 Sign out
