@@ -45,7 +45,7 @@ class Login extends Component{
                     },2000);                       
             }
         },err=>{
-            debugger
+           
         })  
         
     }

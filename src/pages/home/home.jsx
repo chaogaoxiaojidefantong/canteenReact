@@ -11,6 +11,9 @@ class Home extends Component{
     formData: PropTypes.object,
     saveFormData: PropTypes.func.isRequired
   }
+  state={
+    user:''
+  }
   buttonClick=()=>{
     //this.props.formData.name='sansan';
     this.props.saveFormData('sansan','name');
@@ -18,17 +21,38 @@ class Home extends Component{
     let b={['sansan']:'vv'};
   }
   componentDidMount() {
+    this.initData();
+    //let v=store.getState();
+  }
+  initData(){
+    this.getUser();
+    this.getCanteen();
+  }
+  /**
+   * 加载用户信息
+   */
+  getUser(){
+  const user= {user:JSON.parse(localStorage.getItem('user'))};
+  let state=this.state;
+   state={...state,...user}
+   debugger
+  this.setState(state);
+  }
+  /**
+   * 加载食堂信息
+   */
+  getCanteen(){
     let res=api.getCanteen().then(res=>{
     },err=>{
     })
-    let v=store.getState();
   }
+
     render(){
       return (       
         <div>
           <section className='header'>
-            <b>ylw食堂</b><b>首页</b><b>我的订单</b><b>三三</b>
-            <button onClick={this.buttonClick}>登录页</button>
+      <b>ylw食堂</b><b>首页</b><b>我的订单</b>
+      <button>{this.state.user.userName}</button>
           </section>
           <Button variant="contained" color="primary">
             Hello World

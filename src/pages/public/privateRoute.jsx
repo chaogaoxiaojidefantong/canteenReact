@@ -24,7 +24,6 @@ class PrivateRoute extends Component{
           )
         }
       />
-      //<div><button>按钮</button></div>
       )
   }
 }
